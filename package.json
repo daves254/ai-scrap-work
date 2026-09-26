@@ -1,0 +1,16 @@
+{
+  "name": "preply-mail-viewer",
+  "version": "1.0.0",
+  "description": "Read-only web viewer for Preply emails stored in a SQLite database",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2",
+    "sanitize-html": "^2.14.0"
+  }
+}
