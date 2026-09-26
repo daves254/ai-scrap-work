@@ -393,10 +393,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -411,33 +408,27 @@ body {
 }
 
 /* ----------------------------------------------------------
-   LEFT RECIPIENT LIST
+   COLUMN 1 — RECIPIENTS
 ---------------------------------------------------------- */
 
 .sidebar {
-    width: 320px;
-    min-width: 320px;
-
+    width: 300px;
+    min-width: 300px;
     background: #fff;
-
-    border-right: 1px solid #ddd;
-
+    border-right: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
 }
 
 .sidebar-header {
-    height: 64px;
-
+    height: 60px;
     display: flex;
     align-items: center;
-
     padding: 0 20px;
-
     border-bottom: 1px solid #eee;
-
     font-size: 20px;
     font-weight: 600;
+    color: #d33b2c;
 }
 
 .search {
@@ -447,28 +438,21 @@ body {
 
 .search input {
     width: 100%;
-
     padding: 10px 12px;
-
     border: 1px solid #ddd;
     border-radius: 8px;
-
     outline: none;
-
     font-size: 14px;
 }
 
 .recipient-list {
     flex: 1;
-
     overflow-y: auto;
 }
 
 .recipient {
-    padding: 14px 18px;
-
+    padding: 12px 18px;
     border-bottom: 1px solid #f0f0f0;
-
     cursor: pointer;
 }
 
@@ -477,13 +461,13 @@ body {
 }
 
 .recipient.active {
-    background: #e8f0fe;
+    background: #fce8e6;
+    box-shadow: inset 3px 0 0 #d33b2c;
 }
 
 .recipient-email {
     font-size: 14px;
     font-weight: 500;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -491,137 +475,177 @@ body {
 
 .recipient-meta {
     margin-top: 4px;
-
     color: #777;
-
     font-size: 12px;
-
     display: flex;
     justify-content: space-between;
 }
 
 /* ----------------------------------------------------------
-   VIEWER
+   COLUMN 2 — MESSAGE LIST
 ---------------------------------------------------------- */
 
-.viewer {
-    flex: 1;
-
-    min-width: 0;
-
+.maillist {
+    width: 400px;
+    min-width: 320px;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-
-    background: #fff;
 }
 
-.viewer-header {
-    height: 64px;
-
-    border-bottom: 1px solid #ddd;
-
+.maillist-header {
+    height: 60px;
     display: flex;
     align-items: center;
-
-    padding: 0 24px;
-
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e0e0;
     flex-shrink: 0;
 }
 
-.viewer-title {
-    font-size: 18px;
+.maillist-title {
+    font-size: 15px;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.viewer-content {
+.maillist-title .count {
+    color: #777;
+    font-weight: 400;
+}
+
+.message-list {
     flex: 1;
-
     overflow-y: auto;
+}
 
-    padding: 0;
+.message {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.message:hover {
+    background: #f5f7fa;
+}
+
+.message.active {
+    background: #e8f0fe;
+    box-shadow: inset 3px 0 0 #1967d2;
+}
+
+.message-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.message-subject {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-date {
+    font-size: 12px;
+    color: #777;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.message-snippet {
+    margin-top: 4px;
+    color: #666;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ----------------------------------------------------------
-   EMAILS
+   COLUMN 3 — READING PANE
 ---------------------------------------------------------- */
 
-.email {
-    border-bottom: 1px solid #ddd;
-}
-
-.email-header {
-    padding: 18px 28px;
-
+.reader {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
     background: #fff;
 }
 
-.email-from {
-    font-size: 14px;
-    font-weight: 600;
+.reader-body {
+    flex: 1;
+    overflow-y: auto;
 }
 
-.email-to {
-    margin-top: 4px;
-
-    color: #666;
-
-    font-size: 13px;
+.read-header {
+    padding: 22px 32px 16px;
+    border-bottom: 1px solid #eee;
 }
 
-.email-subject {
-    margin-top: 12px;
-
-    font-size: 18px;
+.read-subject {
+    font-size: 22px;
     font-weight: 500;
+    margin-bottom: 12px;
 }
 
-.email-date {
-    margin-top: 5px;
+.read-line {
+    font-size: 13px;
+    color: #555;
+    margin-top: 3px;
+}
 
-    color: #777;
+.read-line b {
+    color: #202124;
+}
 
+.read-date {
+    margin-top: 6px;
     font-size: 12px;
+    color: #888;
 }
 
-.email-body {
-    padding: 20px 28px 35px;
-
+.read-content {
+    padding: 22px 32px 40px;
     overflow-x: auto;
 }
 
-.email-body img {
+.read-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.read-content table {
     max-width: 100%;
 }
 
-.email-body table {
-    max-width: 100%;
-}
-
-.email-body a {
+.read-content a {
     color: #1967d2;
 }
 
 .empty {
     height: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: #888;
-
+    color: #999;
     font-size: 15px;
+    text-align: center;
+    padding: 20px;
 }
 
 .loading {
     padding: 30px;
-
     color: #777;
 }
 
 .error {
     padding: 30px;
-
     color: #b00020;
 }
 
@@ -629,15 +653,17 @@ body {
    MOBILE
 ---------------------------------------------------------- */
 
-@media (max-width: 800px) {
-
+@media (max-width: 900px) {
     .sidebar {
-        width: 260px;
-        min-width: 260px;
+        width: 200px;
+        min-width: 200px;
     }
-
-    .email-header,
-    .email-body {
+    .maillist {
+        width: 280px;
+        min-width: 240px;
+    }
+    .read-header,
+    .read-content {
         padding-left: 18px;
         padding-right: 18px;
     }
@@ -650,47 +676,32 @@ body {
 
 <div class="app">
 
+    <!-- Column 1: recipients -->
     <aside class="sidebar">
-
-        <div class="sidebar-header">
-            Preply Mail
-        </div>
+        <div class="sidebar-header">Preply Mail</div>
 
         <div class="search">
-            <input
-                id="search"
-                type="search"
-                placeholder="Search recipients..."
-            >
+            <input id="search" type="search" placeholder="Search recipients...">
         </div>
 
-        <div
-            id="recipientList"
-            class="recipient-list"
-        ></div>
-
+        <div id="recipientList" class="recipient-list"></div>
     </aside>
 
-    <main class="viewer">
-
-        <div
-            id="viewerHeader"
-            class="viewer-header"
-        >
-            <div class="viewer-title">
-                Select a recipient
-            </div>
+    <!-- Column 2: message list -->
+    <section class="maillist">
+        <div class="maillist-header">
+            <div id="mailListTitle" class="maillist-title">Select a recipient</div>
         </div>
-
-        <div
-            id="viewerContent"
-            class="viewer-content"
-        >
-            <div class="empty">
-                Select a recipient to view their emails
-            </div>
+        <div id="messageList" class="message-list">
+            <div class="empty">No recipient selected</div>
         </div>
+    </section>
 
+    <!-- Column 3: reading pane -->
+    <main class="reader">
+        <div id="readerBody" class="reader-body">
+            <div class="empty">Select an email to read it here</div>
+        </div>
     </main>
 
 </div>
@@ -699,259 +710,194 @@ body {
 
 let recipients = [];
 let selectedRecipient = null;
+let currentEmails = [];
+let selectedEmailIdx = null;
 
-const recipientList =
-    document.getElementById("recipientList");
-
-const viewerHeader =
-    document.getElementById("viewerHeader");
-
-const viewerContent =
-    document.getElementById("viewerContent");
-
-const search =
-    document.getElementById("search");
+const recipientList = document.getElementById("recipientList");
+const mailListTitle = document.getElementById("mailListTitle");
+const messageList = document.getElementById("messageList");
+const readerBody = document.getElementById("readerBody");
+const search = document.getElementById("search");
 
 // ----------------------------------------------------------
-// Load recipients
+// Recipients (column 1)
 // ----------------------------------------------------------
 
 async function loadRecipients() {
-
-    recipientList.innerHTML =
-        '<div class="loading">Loading...</div>';
+    recipientList.innerHTML = '<div class="loading">Loading...</div>';
 
     try {
-
-        const response =
-            await fetch("/api/recipients");
+        const response = await fetch("/api/recipients");
 
         if (!response.ok) {
-            throw new Error(
-                "Failed to load recipients"
-            );
+            throw new Error("Failed to load recipients");
         }
 
-        const data =
-            await response.json();
-
-        recipients =
-            data.recipients;
-
+        const data = await response.json();
+        recipients = data.recipients;
         renderRecipients();
-
     } catch (error) {
-
         recipientList.innerHTML =
-            '<div class="error">' +
-            escapeHtml(error.message) +
-            '</div>';
+            '<div class="error">' + escapeHtml(error.message) + '</div>';
     }
 }
 
-// ----------------------------------------------------------
-// Render recipient list
-// ----------------------------------------------------------
-
 function renderRecipients() {
+    const query = search.value.trim().toLowerCase();
 
-    const query =
-        search.value
-            .trim()
-            .toLowerCase();
-
-    const filtered =
-        recipients.filter(item =>
-            item.email
-                .toLowerCase()
-                .includes(query)
-        );
+    const filtered = recipients.filter(item =>
+        item.email.toLowerCase().includes(query)
+    );
 
     recipientList.innerHTML = "";
 
-    for (const recipient of filtered) {
+    if (!filtered.length) {
+        recipientList.innerHTML = '<div class="empty">No recipients</div>';
+        return;
+    }
 
-        const element =
-            document.createElement("div");
+    for (const recipient of filtered) {
+        const element = document.createElement("div");
 
         element.className =
             "recipient" +
-            (
-                selectedRecipient === recipient.email
-                    ? " active"
-                    : ""
-            );
+            (selectedRecipient === recipient.email ? " active" : "");
 
         element.innerHTML = \`
-            <div class="recipient-email">
-                \${escapeHtml(recipient.email)}
-            </div>
-
+            <div class="recipient-email">\${escapeHtml(recipient.email)}</div>
             <div class="recipient-meta">
-                <span>
-                    \${recipient.count}
-                    email\${recipient.count === 1 ? "" : "s"}
-                </span>
-
-                <span>
-                    \${formatDate(recipient.latest)}
-                </span>
+                <span>\${recipient.count} email\${recipient.count === 1 ? "" : "s"}</span>
+                <span>\${formatDate(recipient.latest)}</span>
             </div>
         \`;
 
-        element.onclick = () =>
-            openRecipient(recipient.email);
-
+        element.onclick = () => openRecipient(recipient.email);
         recipientList.appendChild(element);
     }
 }
 
 // ----------------------------------------------------------
-// Open recipient
+// Message list (column 2)
 // ----------------------------------------------------------
 
 async function openRecipient(email) {
-
     selectedRecipient = email;
+    selectedEmailIdx = null;
+    currentEmails = [];
 
     renderRecipients();
 
-    viewerHeader.innerHTML = \`
-        <div class="viewer-title">
-            \${escapeHtml(email)}
-        </div>
-    \`;
-
-    viewerContent.innerHTML =
-        '<div class="loading">Loading emails...</div>';
+    mailListTitle.innerHTML = escapeHtml(email);
+    messageList.innerHTML = '<div class="loading">Loading emails...</div>';
+    readerBody.innerHTML = '<div class="empty">Select an email to read it here</div>';
 
     try {
-
-        const response =
-            await fetch(
-                "/api/recipient?email=" +
-                encodeURIComponent(email)
-            );
+        const response = await fetch(
+            "/api/recipient?email=" + encodeURIComponent(email)
+        );
 
         if (!response.ok) {
-            throw new Error(
-                "Failed to load emails"
-            );
+            throw new Error("Failed to load emails");
         }
 
-        const data =
-            await response.json();
+        const data = await response.json();
 
-        renderEmails(data.emails);
+        // Newest first, like Gmail.
+        currentEmails = data.emails.slice().reverse();
 
+        renderMessageList();
+
+        // Auto-open the most recent email.
+        if (currentEmails.length) {
+            openEmail(0);
+        }
     } catch (error) {
-
-        viewerContent.innerHTML =
-            '<div class="error">' +
-            escapeHtml(error.message) +
-            '</div>';
+        messageList.innerHTML =
+            '<div class="error">' + escapeHtml(error.message) + '</div>';
     }
 }
 
-// ----------------------------------------------------------
-// Render all emails for recipient
-// ----------------------------------------------------------
+function renderMessageList() {
+    const n = currentEmails.length;
 
-function renderEmails(emails) {
+    mailListTitle.innerHTML =
+        escapeHtml(selectedRecipient) +
+        ' <span class="count">(' + n + ')</span>';
 
-    if (!emails.length) {
-
-        viewerContent.innerHTML =
-            '<div class="empty">' +
-            'No emails found' +
-            '</div>';
-
+    if (!n) {
+        messageList.innerHTML = '<div class="empty">No emails found</div>';
         return;
     }
 
-    viewerContent.innerHTML =
-        emails
-            .map(renderEmail)
-            .join("");
+    messageList.innerHTML = "";
+
+    currentEmails.forEach((email, idx) => {
+        const element = document.createElement("div");
+
+        element.className = "message" + (selectedEmailIdx === idx ? " active" : "");
+
+        const subject = email.subject || "(no subject)";
+        const snippet = email.snippet || "";
+
+        element.innerHTML = \`
+            <div class="message-top">
+                <div class="message-subject">\${escapeHtml(subject)}</div>
+                <div class="message-date">\${formatShortDate(email.date)}</div>
+            </div>
+            <div class="message-snippet">\${escapeHtml(snippet)}</div>
+        \`;
+
+        element.onclick = () => openEmail(idx);
+        messageList.appendChild(element);
+    });
 }
 
 // ----------------------------------------------------------
-// Render individual email
+// Reading pane (column 3)
 // ----------------------------------------------------------
 
-function renderEmail(email) {
+function openEmail(idx) {
+    selectedEmailIdx = idx;
+    renderMessageList();
 
-    const subject =
-        email.subject ||
-        "(no subject)";
+    const email = currentEmails[idx];
+    if (!email) return;
 
-    const from =
-        email.from ||
-        "";
-
-    const to =
-        email.to ||
-        "";
-
-    const date =
-        formatDate(email.date);
-
-    const body =
-        email.body || "";
+    const subject = email.subject || "(no subject)";
+    const from = email.from || "";
+    const to = email.to || "";
 
     /*
-     * The email HTML is inserted into the viewer.
-     *
-     * Scripts and unsafe markup were already removed
-     * server-side by sanitize-html (see renderEmailBody).
+     * email.body was already sanitized server-side by
+     * sanitize-html (see renderEmailBody), so it is safe
+     * to inject here.
      */
+    const body = email.body || '<div class="empty">No body</div>';
 
-    return \`
-        <article class="email">
-
-            <header class="email-header">
-
-                <div class="email-from">
-                    From: \${escapeHtml(from)}
-                </div>
-
-                <div class="email-to">
-                    To: \${escapeHtml(to)}
-                </div>
-
-                <div class="email-subject">
-                    \${escapeHtml(subject)}
-                </div>
-
-                <div class="email-date">
-                    \${escapeHtml(date)}
-                </div>
-
-            </header>
-
-            <div class="email-body">
-                \${body}
-            </div>
-
-        </article>
+    readerBody.innerHTML = \`
+        <div class="read-header">
+            <div class="read-subject">\${escapeHtml(subject)}</div>
+            <div class="read-line"><b>From:</b> \${escapeHtml(from)}</div>
+            <div class="read-line"><b>To:</b> \${escapeHtml(to)}</div>
+            <div class="read-date">\${escapeHtml(formatDate(email.date))}</div>
+        </div>
+        <div class="read-content">\${body}</div>
     \`;
+
+    readerBody.scrollTop = 0;
 }
 
 // ----------------------------------------------------------
 // Search
 // ----------------------------------------------------------
 
-search.addEventListener(
-    "input",
-    renderRecipients
-);
+search.addEventListener("input", renderRecipients);
 
 // ----------------------------------------------------------
 // Helpers
 // ----------------------------------------------------------
 
 function escapeHtml(value) {
-
     return String(value ?? "")
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
@@ -961,17 +907,25 @@ function escapeHtml(value) {
 }
 
 function formatDate(value) {
-
     if (!value) return "";
-
-    const date =
-        new Date(value);
-
-    if (Number.isNaN(date.getTime())) {
-        return value;
-    }
-
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return String(value);
     return date.toLocaleString();
+}
+
+function formatShortDate(value) {
+    if (!value) return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+
+    const now = new Date();
+    const sameYear = date.getFullYear() === now.getFullYear();
+
+    return date.toLocaleDateString(undefined, {
+        month: "short",
+        day: "numeric",
+        year: sameYear ? undefined : "numeric"
+    });
 }
 
 loadRecipients();
