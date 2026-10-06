@@ -1,0 +1,31 @@
+{
+  "name": "style-transfer",
+  "version": "0.1.0",
+  "description": "Copy the CSS rules from one HTML file that apply to another HTML file",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "style-transfer": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "tsx src/cli.ts",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "css-select": "^7.0.0",
+    "domhandler": "^6.0.1",
+    "parse5": "^8.0.1",
+    "parse5-htmlparser2-tree-adapter": "^8.0.1",
+    "postcss": "^8.5.29",
+    "postcss-selector-parser": "^7.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

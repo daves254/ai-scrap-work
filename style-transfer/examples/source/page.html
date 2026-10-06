@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>Source page (A)</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    :root { --brand: #3b5bdb; }
+    body { font-family: "Inter", sans-serif; margin: 0; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+    .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+    .card > h2, .unused-heading { margin-top: 0; }
+    #hero { background: url(img/hero.jpg) center / cover; }
+    #sidebar { width: 240px; }
+    .btn::before { content: "→ "; }
+    .btn.primary { background: var(--brand); color: white; }
+    a[href^="https"]::after { content: " ↗"; }
+    ul li:nth-child(odd) { background: #f8f9fa; }
+    .spinner { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 50% { opacity: .5; } }
+    @media (max-width: 600px) {
+      .card { padding: 8px; }
+      .table-wrap { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body><div id="hero"></div></body>
+</html>

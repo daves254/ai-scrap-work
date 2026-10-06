@@ -1,0 +1,4 @@
+@font-face { font-family: "Inter"; src: url(../fonts/inter.woff2) format("woff2"); }
+@font-face { font-family: "Unused Font"; src: url(../fonts/unused.woff2); }
+.badge { display: inline-block; padding: 2px 6px; }
+.modal { position: fixed; }
