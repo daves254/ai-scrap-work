@@ -6,6 +6,7 @@ import { SelectorMatcher } from "./match.js";
 import { buildStylesheet, prune, type PruneReport } from "./prune.js";
 
 export { toStaticSelector } from "./match.js";
+export { stripStyles, type StripOptions, type StripResult } from "./strip.js";
 
 export interface TransferOptions {
   /** HTML whose styles are copied (A). */

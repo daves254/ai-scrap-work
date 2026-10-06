@@ -1,5 +1,10 @@
 # style-transfer
 
+Two tools for HTML styling:
+
+- **`style-transfer`** copies the CSS rules from one page that apply to another (below).
+- **`style-strip`** removes all styling from a page ([jump](#style-strip)).
+
 Copy the CSS from one HTML page (**A**) into another (**B**), keeping only the
 rules that apply to B. A rule is kept when its selector matches at least one
 element in B. That covers classes, ids, tag names, attributes, combinators,
@@ -75,3 +80,44 @@ const { html, css, report, warnings } = await transferStyles({
 npx tsx src/cli.ts examples/source/page.html examples/target/index.html -v
 npm test
 ```
+
+---
+
+## style-strip
+
+Removes all styling from an HTML document. It edits the original text in place, so everything else
+(markup, comments, entities, whitespace) stays exactly as it was.
+
+```bash
+npx tsx src/strip-cli.ts page.html -o page.plain.html
+cat page.html | npx tsx src/strip-cli.ts - > page.plain.html   # stdin -> stdout
+node dist/strip-cli.js page.html -i                           # after npm run build
+```
+
+What it removes:
+
+- `<style>` blocks, including ones inside SVG, `<noscript>` and `<template>`
+- Stylesheet `<link>`s: `rel="stylesheet"`, `rel="alternate stylesheet"`, and `rel="preload"` with `as="style"`
+- `<meta http-equiv="Default-Style">`
+- Every `style="…"` attribute
+- Obsolete presentational HTML attributes, such as `bgcolor`, `align`, `valign`, `<table border cellpadding
+  cellspacing width>`, `<td nowrap>`, `<body text link>` and `<img border hspace>`. These are removed from
+  HTML elements only: SVG's `width`/`height` are untouched, and so is `<img width height>`.
+- Obsolete presentational elements: `<font>`, `<center>`, `<big>`, `<tt>`, `<strike>`, `<blink>` and
+  `<marquee>` are unwrapped (the tags go, their content stays), and `<basefont>` is removed.
+
+| Option | Meaning |
+| --- | --- |
+| `-o, --out <file>` | Write the result here (default: stdout) |
+| `-i, --in-place` | Overwrite the input file |
+| `--css-only` | Only remove CSS; keep the presentational attributes and elements |
+| `--classes` | Also remove `class` attributes |
+| `-q, --quiet` | No summary |
+
+```ts
+import { stripStyles } from "./src/index.js";
+const { html, report } = stripStyles(input, { classes: true });
+```
+
+It doesn't touch scripts. CSS that JavaScript injects at runtime, or styles set on SVG attributes
+like `fill`, will still apply.
